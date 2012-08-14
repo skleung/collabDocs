@@ -1,0 +1,5 @@
+body{padding:20px 50px;font:14px/1.5 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Helvetica,Sans-Serif}
+#write{background-color:#fcfcfa;min-height:600px;}
+#write textarea{width:100%;min-height:100%;background-color:#fcfcfa;overflow:auto;outline:none;resize:none;margin:0;padding:1%;border:none;font-family:"Helvetica Neue","Lucida Grande",sans-serif}
+#users ul{list-style-type:none;}
+#users ul li{display:inline-block;background-color:#f0f8ff;padding:2px;margin-left:5px;border:1px solid #bde0ff;border-radius:5px}
