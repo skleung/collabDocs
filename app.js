@@ -1,13 +1,21 @@
-"use strict";
-var express = require('express');
-var app = express();
+var http = require('http'),
+    express = require('express'),
+    app = express(),
+    nconf = require('nconf');
 
-var nconf = require('nconf');
+var server = http.createServer(app),
+    io = require('socket.io').listen(server);
+
 nconf.argv().env().file({ file: 'local.json' });
 
-require('./settings')(app, express, nconf);
-require('./routes')(app, nconf);
-app.use(express.static(__dirname + '/public'));
+var doc = { content: '', users: [] }; // for now maintain one doc for everyone
+// user = { username: 'Anonymous Hippo', cursorOffset: 29 }
 
-app.listen(process.env.PORT || nconf.get('port'));
-console.log("listening on port: "+nconf.get('port'));
+var revs = []; // revisions
+
+require('./settings.js')(app, express, nconf);
+require('./routes.js')(app, nconf);
+require('./lib/socket.io-server.js')(io, doc, revs);
+
+server.listen(process.env.PORT || nconf.get('port'));
+console.log("Listening at 127.0.0.1:" + nconf.get('port'));
