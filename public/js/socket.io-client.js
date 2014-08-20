@@ -15,8 +15,9 @@ function setCaretToPos($input, pos) {
   setSelectionRange($input.get(0), pos, pos);
 }
 
-
 var socket = io();
+
+socket.emit('newClient');
 
 var CURSOR_KEYCODES = {
   33: 'page up',
@@ -48,5 +49,9 @@ $textarea.bind('keydown', function(event) {
 socket.on('write', function(data) {
   updateTime = d.getTime();
   $textarea.val(data.content);
-  setCaretToPos($textarea, data.cursor);
+  setCaretToPos($textarea, data.me.cursorOffset);
+  // console.log('data.me.username: %s', data.me.username);
+  // data.friends.forEach(function (friend) {
+  //   console.log('friend.username: %s', friend.username);
+  // });
 });

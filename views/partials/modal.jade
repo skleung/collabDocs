@@ -1,0 +1,14 @@
+div#myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+  div.modal-dialog
+    div.modal-content
+      div.modal-header
+        button.close(type='button', data-dismiss='modal')
+          span(aria-hidden='true') &times;
+          span.sr-only Close
+        h4#myModalLabel.modal-title Modal title
+      div.modal-body
+        form#username-form
+          input#username-input(name='username-input', placeholder='username', autocomplete='off', autocomplete)
+      div.modal-footer
+        button.btn.btn-default(type='button', data-dismiss='modal') Close
+        button.btn.btn-default(type='button') Save changes

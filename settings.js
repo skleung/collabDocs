@@ -13,7 +13,7 @@ module.exports = function(app, express, nconf) {
   app.use(express.methodOverride());
 
   app.use(express.cookieParser());
-  app.use(express.session({ secret: 'keyboard cat', store: sessionStore, resave: true, saveUninitialized: true }));
+  app.use(express.session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
   app.use(express.static(__dirname + '/public'));
 
   app.use(app.router);

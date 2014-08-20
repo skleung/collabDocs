@@ -8,9 +8,8 @@ var server = http.createServer(app),
 
 nconf.argv().env().file({ file: 'local.json' });
 
-var doc = { content: '', users: [] }; // for now maintain one doc for everyone
-// user = { username: 'Anonymous Hippo', cursorOffset: 29 }
-
+// eventually use MongoDB
+var doc = { content: '' }; // for now maintain one doc for everyone
 var revs = []; // revisions
 
 require('./settings.js')(app, express, nconf);
