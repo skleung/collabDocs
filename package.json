@@ -6,9 +6,9 @@
     "npm": ">= 1.1.x"
   },
   "dependencies": {
-    "jade": "^1.5.0",
     "nconf": "^0.6.9",
     "socket.io": "^1.0.6",
-    "express": "^3.0.0"
+    "express": "^3.0.0",
+    "jade": "^1.5.0"
   }
 }

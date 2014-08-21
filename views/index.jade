@@ -1,7 +1,13 @@
-extend layout
+extends layout
 
 block content
-  h1 collabDocs
-  div#notepad.col-md-4
-    textarea#textarea
+  //- include modal
+
+  script(src="/js/username.js")
+  div#screen
+    div#notepad
+      textarea#textarea
+  script(src="/js/bootstrap.min.js")
   script(src="/js/socket.io-client.js")
+
+

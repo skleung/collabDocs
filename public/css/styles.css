@@ -1,24 +1,27 @@
-body {
-  padding: 20px 50px;
-  font: 14px/1.5 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Helvetica, Sans-Serif
+#screen {
+  background-color: #c0c0c0;
+  min-height: 100%;
+  min-width: 100%;
+  padding: 25px;
 }
 
 #notepad {
-  background-color: #e0e0e0;
-  min-height: 600px;
+  width: 850px;
+  height: 1100px;
+  margin: 0 auto;
+  -webkit-box-shadow: 1px 1px 3px 3px #999;
 }
 
-#notepad textarea {
+#screen textarea {
   width: 100%;
-  min-height: 100%;
-  background-color: #c0c0c0;
+  height: 100%;
+  padding: 100px;
+  background-color: #ffffff;
   overflow: auto;
   outline: none;
   resize: none;
-  margin: 0;
-  padding: 1%;
   border: none;
-  font-family: "Helvetica Neue", "Lucida Grande", sans-serif
+  font: 12pt Arial, Sans-Serif;
 }
 
 #users ul {
@@ -32,4 +35,20 @@ body {
   margin-left: 5px;
   border: 1px solid #bde0ff;
   border-radius: 5px
+}
+
+#myModal {
+  z-index: 10000;
+}
+
+.modal-content {
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#username-input {
+  outline: none;
+  border: none;
+  width: 100%;
 }

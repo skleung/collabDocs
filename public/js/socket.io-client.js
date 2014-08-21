@@ -30,13 +30,14 @@ var CURSOR_KEYCODES = {
   40: 'down arrow'
 }
 
+
 var $textarea = $('#textarea');
 var d = new Date();
 var updateTime = d.getTime(); // how recently has textarea been updated?
 
 $textarea.bind('keypress', function(event) {
   event.preventDefault();
-  socket.emit('write', event.keyCode, $textarea.prop('selectionStart'), updateTime);
+  socket.emit('insert', event.keyCode, $textarea.prop('selectionStart'), updateTime);
 });
 
 $textarea.bind('keydown', function(event) {
@@ -44,9 +45,17 @@ $textarea.bind('keydown', function(event) {
     event.preventDefault();
     socket.emit('cursor', event.keyCode, $textarea.prop('selectionStart'), updateTime);
   }
+  if (event.keyCode == 8) {
+    event.preventDefault();
+    socket.emit('backspace', event.keyCode, $textarea.prop('selectionStart'), updateTime);
+  }
+  if (event.keyCode == 46) {
+    event.preventDefault();
+    socket.emit('delete', event.keyCode, $textarea.prop('selectionStart'), updateTime);
+  }
 });
 
-socket.on('write', function(data) {
+socket.on('edit', function(data) {
   updateTime = d.getTime();
   $textarea.val(data.content);
   setCaretToPos($textarea, data.me.cursorOffset);
